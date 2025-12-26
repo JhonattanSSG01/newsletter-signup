@@ -48,11 +48,22 @@ export const suscribeStyles = css`
     margin-top: 1rem;
   }
 
-  .form label {
-    align-self: flex-start;
+  .form .input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .input label {
     font-size: 0.8rem;
-    margin-bottom: 0.5rem;
     font-weight: bold;
+  }
+
+  .input .error {
+    color: red;
+    font-size: 0.8rem;
   }
 
   input[type="email"] {
