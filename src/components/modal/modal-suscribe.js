@@ -18,6 +18,11 @@ export class ModalSuscribe extends LitElement {
     this.email = "";
   }
 
+  /**
+   * Triggered when the user clicks the close button.
+   * Dispatches a custom event "dismiss" with bubbles and composed set to true.
+   * Removes the modal from the DOM.
+   */
   _onDismiss() {
     this.dispatchEvent(new CustomEvent("dismiss", { bubbles: true, composed: true }));
     this.remove();

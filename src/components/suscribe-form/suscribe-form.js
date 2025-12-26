@@ -26,6 +26,14 @@ export class SuscribeForm extends LitElement {
     ];
   }
 
+  
+  /**
+   * Called when the user changes the email address input field.
+   * Updates the email property and checks if the input is a valid email address.
+   * If the input is not a valid email address, sets the _error property to true.
+   * Calls requestUpdate to re-render the component.
+   * @param {Event} e - The event object.
+   */
   onchangeEmail(e) {
     this.email = e.target.value;
     const validateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -35,6 +43,13 @@ export class SuscribeForm extends LitElement {
     }
   }
 
+  
+  /**
+   * Called when the user submits the form.
+   * Checks if the email property is empty, if so, sets the _error property to true and calls requestUpdate to re-render the component.
+   * Otherwise, dispatches a custom event "submit" with the email property as the detail.
+   * The event bubbles and is composed.
+   */
   handleSubmit() {
     if (!this.email) {
       this._error = true;
