@@ -1,32 +1,71 @@
-import { LitElement } from 'lit';
-import { customElements } from "lit/decorators.js";
-
+import { LitElement, html } from "lit";
+import { suscribeStyles } from "./suscribe-styles.js";
 export class SuscribeForm extends LitElement {
+  static get styles() {
+    return suscribeStyles;
+  }
+
+  constructor() {
+    super();
+    this._list = [
+      {
+        text: "Product discovery and building what matters",
+      },
+      {
+        text: "Measuring to ensure updates are a success",
+      },
+      {
+        text: "And much more!",
+      },
+    ];
+  }
+
   render() {
     return html`
-        <div>
+        <div class="container">
           <article>
             <h1>Stay updated!</h1>
             <p>
               Join 60,000+ product managers receiving monthly updates on:</p>
             <p>
               <ul>
-                <li>Product discovery and building what matters</li>
-                <li>Measuring to ensure updates are a success</li>
-                <li>And much more!</li>
+                ${this._list.map(
+                  (item) =>
+                    html`<li>
+                      <icon>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-circle-check-icon lucide-circle-check"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="m9 12 2 2 4-4" />
+                        </svg>
+                      </icon>
+                      ${item.text}
+                    </li>`
+                )}
               </ul>
             </p>
-            <section>
-              <input type="email" placeholder="Email address">
+            <section class="form">
+            <label for="email">Email address</label>
+              <input type="email" placeholder="email@company.com">
               <button>Subscribe to monthly newsletter</button>
             </section>
           </article>
-          <section>
-            <img src="./src/assets/img/banner-mobile.jpg" alt="illustration-sign-up-mobile">
+          <section class="banner">
+            <img src="./src/assets/img/banner-desktop.jpg" alt="illustration-sign-up-mobile">
           </section>
         </div>
     `;
   }
 }
 
-customElements.define('suscribe-form', SuscribeForm);
+customElements.define("suscribe-form", SuscribeForm);
