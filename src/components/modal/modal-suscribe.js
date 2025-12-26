@@ -18,10 +18,9 @@ export class ModalSuscribe extends LitElement {
     this.email = "";
   }
 
-  _onClick() {
-    this.isOpen = false;
-    this.email = "";
-    this.remove()
+  _onDismiss() {
+    this.dispatchEvent(new CustomEvent("dismiss", { bubbles: true, composed: true }));
+    this.remove();
   }
 
   render() {
@@ -35,7 +34,7 @@ export class ModalSuscribe extends LitElement {
           A confirmation email has been sent to <strong> <slot name="email">${this.email ? this.email : "email@company.com"}</slot> </strong>. Please open it
           and click the button inside to confirm your subscription.
         </p>
-        <p @click=${this._onClick}>
+        <p @click=${this._onDismiss}>
           <button>Dismiss message</button>
         </p>
       </dialog>
