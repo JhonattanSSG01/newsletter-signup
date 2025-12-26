@@ -11,6 +11,7 @@ export const suscribeStyles = css`
     flex-direction: column-reverse;
     background-color: #ffff;
     border-radius: 10px;
+    overflow: auto
   }
 
   .information {
