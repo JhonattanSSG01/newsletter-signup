@@ -2,20 +2,18 @@ import { css } from "lit";
 
 export const modalStyles = css`
   .modal {
+    width: calc(100% - 4rem);
+    height: calc(100% - 4rem);
     background-color: #ffffff;
     border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
     padding: 2rem;
-    width: 100%;
-    max-width: 300px;
-    position: fixed;  
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  .modlal icon {
+  .modal icon {
     font-size: 3rem;
   }
 
@@ -45,6 +43,25 @@ export const modalStyles = css`
   }
 
   button:hover {
-    background-color: rgb(56, 60, 98);
+    background-color: #383c62;
+  }
+
+  @media (min-width: 768px) {
+    .modal {
+      max-width: 300px;
+      max-height: 350px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 `;

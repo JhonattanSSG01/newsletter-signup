@@ -3,9 +3,7 @@ import "./components/suscribe-form/suscribe-form.js";
 import "./components/modal/modal-suscribe.js";
 
 export class SignUp extends LitElement {
-  static get styles() {
-    return css``;
-  }
+
   constructor() {
     super();
     this.isOpen = false;

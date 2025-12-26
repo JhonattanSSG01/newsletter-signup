@@ -1,15 +1,16 @@
 import { css } from "lit";
 
 export const suscribeStyles = css`
-  .container {
+.container {
+    height: calc(100% - 1rem);
+    margin: 0 auto;
+    padding-bottom: 1rem;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-direction: column-reverse;
     background-color: #ffff;
     border-radius: 10px;
-    margin: 0 auto;
-    height: 100vh;
-    min-height: 500px;
-    max-width: 1000px;
   }
 
   .information {
@@ -106,13 +107,13 @@ export const suscribeStyles = css`
 
   @media (min-width: 768px) {
     .container {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      padding: 2rem;
+      width: 70vw;
       height: 60vh;
+      min-height: 500px;
+      max-width: 800px;
+      flex-direction: row;
+      padding: 2rem;
       border-radius: 15px;
-      width: 70vw
     }
 
     article {
@@ -122,7 +123,6 @@ export const suscribeStyles = css`
 
     .form {
       align-items: flex-start;
-      
     }
 
     .banner {
@@ -132,6 +132,7 @@ export const suscribeStyles = css`
       width: 40%;
       height: 100%;
     }
+
     .banner img {
       width: 100%;
       height: 100%;

@@ -14,12 +14,17 @@
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
-  display: flex;
-  place-items: center;
-  justify-content: center;
-  min-height: 100vh;
   background-color: #36384d;
+}
+
+@media (min-height: 768px) {
+  body {
+    display: grid;
+    place-items: center;
+  }
 }
 
 @media (prefers-color-scheme: light) {
