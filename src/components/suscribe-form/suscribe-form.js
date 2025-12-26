@@ -5,6 +5,10 @@ export class SuscribeForm extends LitElement {
     return suscribeStyles;
   }
 
+  static properties = {
+    _list: { type: Array },
+  };
+
   constructor() {
     super();
     this._list = [
@@ -19,6 +23,15 @@ export class SuscribeForm extends LitElement {
       },
     ];
   }
+
+  handleSubmit() {
+    this.dispatchEvent(new CustomEvent('submit', {
+      detail: { email: this.email },
+      bubbles: true,
+      composed: true
+    }));
+  }
+
 
   render() {
     return html`
@@ -57,7 +70,7 @@ export class SuscribeForm extends LitElement {
             <section class="form">
             <label for="email">Email address</label>
               <input type="email" placeholder="email@company.com">
-              <button>Subscribe to monthly newsletter</button>
+              <button @click=${this.handleSubmit}>Subscribe to monthly newsletter</button>
             </section>
           </article>
           <section class="banner">
