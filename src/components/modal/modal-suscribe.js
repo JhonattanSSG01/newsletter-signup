@@ -41,7 +41,7 @@ export class ModalSuscribe extends LitElement {
               and click the button inside to confirm your subscription.
             </p>
           </div>
-          <button @click=${this._onDismiss()}>Dismiss message</button>
+          <button @click=${this._onDismiss}>Dismiss message</button>
         </dialog>
     `;
   }
