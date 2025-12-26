@@ -1,5 +1,6 @@
 import { LitElement, css, html } from "lit";
 import "./components/suscribe-form/suscribe-form.js";
+import "./components/modal/modal-suscribe.js";
 
 export class SignUp extends LitElement {
   static get styles() {
@@ -18,7 +19,7 @@ export class SignUp extends LitElement {
   }
 
   render() {
-    return !this.isOpen
+    return false
       ? html` <suscribe-form @submit=${this._onClick}> </suscribe-form> `
       : html`
           <modal-suscribe

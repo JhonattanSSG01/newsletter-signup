@@ -8,9 +8,11 @@ export const suscribeStyles = css`
     border-radius: 10px;
     margin: 0 auto;
     height: 100vh;
+    min-height: 500px;
+    max-width: 1000px;
   }
 
-  article {
+  .information {
     max-width: 500px;
     padding: 0 1rem;
   }
@@ -45,6 +47,7 @@ export const suscribeStyles = css`
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: .8rem;
     margin-top: 1rem;
   }
 
@@ -53,7 +56,6 @@ export const suscribeStyles = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
   }
 
   .input label {
@@ -71,7 +73,6 @@ export const suscribeStyles = css`
     border: 1px solid #bdbbbf;
     border-radius: 5px;
     width: calc(100% - 2.4rem);
-    margin-bottom: 1rem;
     font-size: 0.9rem;
   }
 

@@ -54,7 +54,7 @@ export class SuscribeForm extends LitElement {
   render() {
     return html`
         <div class="container">
-          <article>
+          <article class="information">
             <h1>Stay updated!</h1>
             <p>
               Join 60,000+ product managers receiving monthly updates on:</p>
