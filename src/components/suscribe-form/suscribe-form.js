@@ -7,6 +7,7 @@ export class SuscribeForm extends LitElement {
 
   constructor() {
     super();
+    this._error = true;
     this._list = [
       {
         text: "Product discovery and building what matters",
@@ -30,8 +31,8 @@ export class SuscribeForm extends LitElement {
             <p>
               <ul>
                 ${this._list.map(
-                  (item) =>
-                    html`<li>
+      (item) =>
+        html`<li>
                       <icon>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -51,11 +52,14 @@ export class SuscribeForm extends LitElement {
                       </icon>
                       ${item.text}
                     </li>`
-                )}
+    )}
               </ul>
             </p>
             <section class="form">
-            <label for="email">Email address</label>
+              <article class="input"> 
+                <label for="email">Email address</label>
+                ${this._error ? html`<span class="error">Valid email required</span>` : ""}
+              </article>
               <input type="email" placeholder="email@company.com">
               <button>Subscribe to monthly newsletter</button>
             </section>
