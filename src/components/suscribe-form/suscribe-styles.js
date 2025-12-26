@@ -87,6 +87,7 @@ export const suscribeStyles = css`
     cursor: pointer;
     font-weight: bold;
     width: 100%;
+    margin-bottom: 1rem;
   }
 
   button:hover {
@@ -99,7 +100,7 @@ export const suscribeStyles = css`
 
   .banner img {
     width: auto;
-    height: 50vh;
+    height: 40vh;
     object-fit: cover;
     width: 100%;
     border-radius: 10px;
