@@ -11,7 +11,8 @@ export class SuscribeForm extends LitElement {
 
   constructor() {
     super();
-    this._error = true;
+    this.email = "";
+    this._error = false;
     this._list = [
       {
         text: "Product discovery and building what matters",
@@ -25,14 +26,30 @@ export class SuscribeForm extends LitElement {
     ];
   }
 
-  handleSubmit() {
-    this.dispatchEvent(new CustomEvent('submit', {
-      detail: { email: this.email },
-      bubbles: true,
-      composed: true
-    }));
+  onchangeEmail(e) {
+    this.email = e.target.value;
+    const validateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(this.email){
+      this._error = !validateEmail.test(this.email);
+      this.requestUpdate();
+    }
   }
 
+  handleSubmit() {
+    if (!this.email) {
+      this._error = true;
+      this.requestUpdate();
+      return;
+    }
+
+    this.dispatchEvent(
+      new CustomEvent("submit", {
+        detail: { email: this.email },
+        bubbles: true,
+        composed: true,
+      })
+    );
+  }
 
   render() {
     return html`
@@ -44,8 +61,8 @@ export class SuscribeForm extends LitElement {
             <p>
               <ul>
                 ${this._list.map(
-      (item) =>
-        html`<li>
+                  (item) =>
+                    html`<li>
                       <icon>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -65,16 +82,24 @@ export class SuscribeForm extends LitElement {
                       </icon>
                       ${item.text}
                     </li>`
-    )}
+                )}
               </ul>
             </p>
             <section class="form">
               <article class="input"> 
                 <label for="email">Email address</label>
-                ${this._error ? html`<span class="error">Valid email required</span>` : ""}
+                ${
+                  this._error
+                    ? html`<span class="error">Valid email required</span>`
+                    : ""
+                }
               </article>
-              <input type="email" placeholder="email@company.com">
-              <button @click=${this.handleSubmit}>Subscribe to monthly newsletter</button>
+              <input .value=${this.email} @input=${
+      this.onchangeEmail
+    } type="email" placeholder="email@company.com" required />
+              <button @click=${
+                this.handleSubmit
+              }>Subscribe to monthly newsletter</button>
             </section>
           </article>
           <section class="banner">
