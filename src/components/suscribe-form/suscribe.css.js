@@ -1,7 +1,7 @@
 import { css } from "lit";
 
 export const suscribeStyles = css`
-.container {
+  .container {
     height: calc(100% - 1rem);
     margin: 0 auto;
     padding-bottom: 1rem;
@@ -31,21 +31,8 @@ export const suscribeStyles = css`
     margin-bottom: 1rem;
   }
 
-  ul {
-    text-align: left;
-    margin-bottom: 1rem;
-    padding: 0;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
-    list-style-type: none;
-    align-items: center;
-    display: flex;
-    gap: 0.5rem;
-  }
-
   .form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,7 +41,6 @@ export const suscribeStyles = css`
   }
 
   .form .input {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,23 +62,6 @@ export const suscribeStyles = css`
     border-radius: 5px;
     width: calc(100% - 2.4rem);
     font-size: 0.9rem;
-  }
-
-  button {
-    background-color: #232642;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 0.9rem 1.2rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  button:hover {
-    background-color: rgb(56, 60, 98);
   }
 
   .banner {

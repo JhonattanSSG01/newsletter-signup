@@ -1,5 +1,7 @@
 import { css } from "lit";
 
+/* Extraer estilos comunes a un archivo separado */
+
 export const modalStyles = css`
   .modal {
     width: calc(100% - 4rem);

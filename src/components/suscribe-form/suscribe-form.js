@@ -1,9 +1,11 @@
 import { LitElement, html } from "lit";
-import { suscribeStyles } from "./suscribe-styles.js";
+import { suscribeStyles } from "./suscribe.css.js";
+import "../common/check-icon.js";
+import "../common/styled-button.js";
+import "../common/benefits-list.js";
+
 export class SuscribeForm extends LitElement {
-  static get styles() {
-    return suscribeStyles;
-  }
+  static styles = [suscribeStyles];
 
   static properties = {
     _list: { type: Array },
@@ -73,33 +75,7 @@ export class SuscribeForm extends LitElement {
             <h1>Stay updated!</h1>
             <p>
               Join 60,000+ product managers receiving monthly updates on:</p>
-            <p>
-              <ul>
-                ${this._list.map(
-                  (item) =>
-                    html`<li>
-                      <icon>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="#b98016"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="lucide lucide-circle-check-icon lucide-circle-check"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="m9 12 2 2 4-4" />
-                        </svg>
-                      </icon>
-                      ${item.text}
-                    </li>`
-                )}
-              </ul>
-            </p>
+            <benefits-list .items=${this._list}></benefits-list>
             <section class="form">
               <article class="input"> 
                 <label for="email">Email address</label>
@@ -109,12 +85,8 @@ export class SuscribeForm extends LitElement {
                     : ""
                 }
               </article>
-              <input .value=${this.email} @input=${
-      this.onchangeEmail
-    } type="email" placeholder="email@company.com" required />
-              <button @click=${
-                this.handleSubmit
-              }>Subscribe to monthly newsletter</button>
+              <input .value=${this.email} @input=${this.onchangeEmail} type="email" placeholder="email@company.com" required />
+              <styled-button @click=${this.handleSubmit} label="Subscribe to monthly newsletter"></styled-button>
             </section>
           </article>
           <section class="banner">

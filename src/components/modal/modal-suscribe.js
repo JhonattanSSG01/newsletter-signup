@@ -1,16 +1,14 @@
 import { LitElement, html } from "lit";
-import { modalStyles } from "./modal-suscribe-styles.js";
+import { modalStyles } from "./modal-suscribe.css.js";
 
 
 export class ModalSuscribe extends LitElement {
+  static styles = [modalStyles];
+
   static properties = {
     isOpen: { type: Boolean, attribute: 'is-open-modal' },
     email: { type: String, attribute: 'email-subscribe' },
   };
-
-  static get styles() {
-    return modalStyles;
-  }
 
   constructor() {
     super();
