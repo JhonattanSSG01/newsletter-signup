@@ -1,7 +1,7 @@
 import { css } from "lit";
 
 export const modalStyles = css`
-  .modal {
+  :host([is-open-modal]) dialog {
     width: calc(100% - 4rem);
     height: calc(100% - 4rem);
     background-color: #ffffff;
@@ -26,7 +26,7 @@ export const modalStyles = css`
 
   .modal p {
     color: #242642;
-    font-size: .8rem;
+    font-size: 0.8rem;
     margin-bottom: 1rem;
   }
 
