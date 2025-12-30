@@ -20,12 +20,18 @@ newsletter-signup/
 │   │   └── img/
 │   │       └── banner-desktop.jpg
 │   ├── components/
+│   │   ├── common/
+│   │   │   ├── benefits-list.js
+│   │   │   ├── check-icon.js
+│   │   │   ├── styled-button.js
+│   │   │   └── css/
+│   │   │       └── common.css.js
 │   │   ├── modal/
-│   │   │   ├── modal-suscribe-styles.js
+│   │   │   ├── modal-suscribe.css.js
 │   │   │   └── modal-suscribe.js
 │   │   └── suscribe-form/
 │   │       ├── suscribe-form.js
-│   │       └── suscribe-styles.js
+│   │       └── suscribe.css.js
 ```
 
 ## Componentes
@@ -35,16 +41,25 @@ newsletter-signup/
 - Descripción: Este componente contiene el formulario de suscripción donde los usuarios pueden ingresar su correo electrónico.
 - Archivos:
   - `suscribe-form.js`: Lógica del formulario.
-  - `suscribe-styles.js`: Estilos del formulario.
+  - `suscribe.css.js`: Estilos del formulario.
 
 ### 2. **Modal Suscribe**
 - Ubicación: `src/components/modal/`
 - Descripción: Este componente muestra un modal de confirmación después de que el usuario se suscribe.
 - Archivos:
   - `modal-suscribe.js`: Lógica del modal.
-  - `modal-suscribe-styles.js`: Estilos del modal.
+  - `modal-suscribe.css.js`: Estilos del modal.
 
-### 3. **Sign Up**
+### 3. **Common Components**
+- Ubicación: `src/components/common/`
+- Descripción: Componentes reutilizables comunes en la aplicación.
+- Archivos:
+  - `benefits-list.js`: Lista de beneficios.
+  - `check-icon.js`: Icono de verificación.
+  - `styled-button.js`: Botón estilizado.
+  - `css/common.css.js`: Estilos comunes.
+
+### 4. **Sign Up**
 - Ubicación: `src/sign-up.js`
 - Descripción: Componente principal que gestiona la interacción entre el formulario y el modal.
 
@@ -92,8 +107,9 @@ newsletter-signup/
 ## Estructura de Estilos
 
 - `src/index.css`: Estilos globales.
-- `suscribe-styles.js`: Estilos específicos para el formulario de suscripción.
-- `modal-suscribe-styles.js`: Estilos específicos para el modal.
+- `suscribe.css.js`: Estilos específicos para el formulario de suscripción.
+- `modal-suscribe.css.js`: Estilos específicos para el modal.
+- `css/common.css.js`: Estilos comunes.
 
 ## Recursos
 
