@@ -6,7 +6,7 @@ export class ModalSuscribe extends LitElement {
   static styles = [modalStyles];
 
   static properties = {
-    isOpen: { type: Boolean, attribute: 'is-open-modal' },
+    isOpen: { type: Boolean, attribute: 'is-open-modal', reflect: true },
     email: { type: String, attribute: 'email-subscribe' },
   };
 
