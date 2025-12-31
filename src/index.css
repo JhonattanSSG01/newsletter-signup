@@ -28,16 +28,10 @@ body {
   color: #242642;
 }
 
-@media (min-height: 768px) {
+@media (min-width: 768px) {
   body {
     display: grid;
     place-items: center;
   }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-}

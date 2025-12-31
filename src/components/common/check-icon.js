@@ -4,8 +4,6 @@ export class CheckIcon extends LitElement {
   static styles = css`
     :host {
       display: inline-block;
-      width: 16px;
-      height: 16px;
     }
 
     img {
@@ -13,10 +11,21 @@ export class CheckIcon extends LitElement {
       height: 100%;
       display: block;
     }
+
   `;
+
+  static properties = {
+    name: { type: String },
+  };
+
+  constructor() {
+    super();
+    this.name = "";
+  }
+  
   render() {
     return html`
-        <img src="./src/assets/images/icon-list.svg" alt="check-icon"/>
+        <img src=${`./src/assets/images/${this.name}.svg`} alt="check-icon"/>
     `;
   }
 }

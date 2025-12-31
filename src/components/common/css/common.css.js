@@ -21,6 +21,11 @@ export const commonStyles = css`
     font-size: clamp(0.9rem, 2vw, 1rem);
   }
 
+  .icon{
+    width: 20px;
+    height: 20px;
+  }
+
   .btn {
     width: 100%;
     margin-bottom: 1rem;

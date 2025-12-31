@@ -93,6 +93,7 @@ export const suscribeStyles = css`
   }
 
   @media (min-width: 768px) {
+
     .container {
       width: 70vw;
       height: 60vh;
