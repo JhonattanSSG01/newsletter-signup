@@ -14,7 +14,10 @@ export class SuscribeForm extends LitElement {
   constructor() {
     super();
     this.email = "";
-    this._error = false;
+    this._error = {
+      required: false,
+      invalid: false,
+    };
     this._list = [
       {
         text: "Product discovery and building what matters",
@@ -29,37 +32,30 @@ export class SuscribeForm extends LitElement {
   }
 
   /**
-   * Validates the email format and updates the error state.
-   * @param {string} email - The email to validate.
-   * @returns {boolean} - True if the email is valid, false otherwise.
-   */
-  validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
-
-  /**
    * Called when the user changes the email address input field.
    * Updates the email property and checks if the input is a valid email address.
-   * If the input is not a valid email address, sets the _error property to true.
+   * If the input is not a valid email address, sets the _error properties accordingly.
    * Calls requestUpdate to re-render the component.
    * @param {Event} e - The event object.
    */
   onchangeEmail(e) {
-    this.email = e.target.value.trim();
-    this._error = !this.validateEmail(this.email);
+    this.email = e.target.value;
+    this._validateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    this._error.required = !this.email;
+    this._error.invalid = this.email && !this._validateEmail.test(this.email);
     this.requestUpdate();
   }
 
   /**
    * Called when the user submits the form.
-   * Checks if the email property is empty or invalid, if so, sets the _error property to true and calls requestUpdate to re-render the component.
+   * Checks if the email property is empty or invalid, if so, sets the _error properties accordingly and calls requestUpdate to re-render the component.
    * Otherwise, dispatches a custom event "submit" with the email property as the detail.
    * The event bubbles and is composed.
    */
   handleSubmit() {
-    if (!this.email || this._error) {
-      this._error = true;
+    this._error.required = !this.email;
+
+    if (this._error.required) {
       this.requestUpdate();
       return;
     }
@@ -75,29 +71,32 @@ export class SuscribeForm extends LitElement {
 
   render() {
     return html`
-        <div class="container">
-          <article class="information">
-            <h1>Stay updated!</h1>
-            <p>
-              Join 60,000+ product managers receiving monthly updates on:</p>
-            <benefits-list .items=${this._list}></benefits-list>
-            <section class="form">
-              <article class="input"> 
-                <label for="email">Email address</label>
-                ${
-                  this._error
-                    ? html`<span class="error">Valid email required</span>`
-                    : ""
-                }
-              </article>
-              <input .value=${this.email} @input=${this.onchangeEmail} type="email" placeholder="email@company.com" required />
+      <div class="container">
+        <div class="side-info">
+          <h1>Stay updated!</h1>
+          <p>
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+          <benefits-list .items=${this._list}></benefits-list>
+          <article class="form">
+            <section class="text-label"> 
+              <label for="email">Email address</label>
+              ${
+                this._error.required
+                  ? html`<span class="error">Email is required</span>`
+                  : this._error.invalid
+                  ? html`<span class="error">Invalid email</span>`
+                  : ""
+              }
+            </section>
+            <section class="input-group">
+              <input class=${this._error.required || this._error.invalid ? "input-error" : ""} .value=${this.email} @input=${this.onchangeEmail} type="email" placeholder="email@company.com" required />
               <styled-button @click=${this.handleSubmit} label="Subscribe to monthly newsletter"></styled-button>
             </section>
           </article>
-          <section class="banner">
-            <img src="./src/assets/img/banner-desktop.jpg" alt="illustration-sign-up-mobile">
-          </section>
         </div>
+        <section class="banner"></section>
+      </div>
     `;
   }
 }

@@ -7,6 +7,7 @@ export const modalStyles = css`
     width: calc(100% - 4rem);
     height: calc(100% - 4rem);
     background-color: #ffffff;
+    color: #242642;
     border: none;
     padding: 2rem;
     display: flex;
@@ -15,41 +16,29 @@ export const modalStyles = css`
     justify-content: space-between;
   }
 
-  .modal icon {
-    font-size: 3rem;
-  }
-
-  .modal h1 {
-    color: #242642;
+  .title {
     font-size: 2.5rem;
     line-height: 1;
     margin-bottom: 1rem;
+    font-family: "Roboto Bold", sans-serif;
   }
 
-  .modal p {
-    color: #242642;
+  .description {
     font-size: 0.8rem;
     margin-bottom: 1rem;
   }
 
-  button {
-    background-color: #232642;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 0.9rem 1.2rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
+  strong{
+   font-family: 'Roboto Bold', sans-serif;
   }
 
-  button:hover {
-    background-color: #383c62;
+  .icon{
+    width: 50px;
+    height: 50px;
   }
 
   @media (min-width: 768px) {
-    .modal {
+    :host([is-open-modal]) dialog {
       max-width: 300px;
       max-height: 350px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

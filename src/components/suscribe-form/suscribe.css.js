@@ -10,23 +10,21 @@ export const suscribeStyles = css`
     justify-content: space-between;
     flex-direction: column-reverse;
     background-color: #ffff;
-    border-radius: 10px;
     overflow: auto
   }
 
-  .information {
+  .side-info {
     max-width: 500px;
     padding: 0 1rem;
   }
 
   h1 {
-    color: #242642;
     font-size: 2rem;
     margin-bottom: 1rem;
+    font-family: "Roboto Bold", sans-serif;
   }
 
   p {
-    color: #242642;
     font-size: 1rem;
     margin-bottom: 1rem;
   }
@@ -40,55 +38,74 @@ export const suscribeStyles = css`
     margin-top: 1rem;
   }
 
-  .form .input {
+  .form > .text-label {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    font-family: "Roboto Bold", sans-serif;
   }
 
-  .input label {
+  label {
     font-size: 0.8rem;
     font-weight: bold;
   }
 
-  .input .error {
+  .error {
     color: red;
     font-size: 0.8rem;
   }
 
   input[type="email"] {
+    width: calc(100% - 2.4rem);
     padding: 0.9rem 1.2rem;
     border: 1px solid #bdbbbf;
     border-radius: 5px;
-    width: calc(100% - 2.4rem);
     font-size: 0.9rem;
+    outline: none;
+  }
+
+  .input-error {
+    border: 2px solid#f49898 !important;
+    background-color: #fae1e1;
+  }
+
+  .input-error::placeholder {
+    color:#ef7f7f;
+    opacity: 1;
+  }
+
+  .input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .banner {
     width: 100%;
-  }
-
-  .banner img {
-    width: auto;
-    height: 40vh;
-    object-fit: cover;
-    width: 100%;
-    border-radius: 10px;
+    height: 300px;
+    min-height: 200px;
+    max-height: 300px;
+    background: url("./src/assets/images/illustration-sign-up-mobile.svg") no-repeat center;
+    background-size: cover;
+    border-radius: 0 0 15px 15px;
   }
 
   @media (min-width: 768px) {
+
     .container {
       width: 70vw;
       height: 60vh;
-      min-height: 500px;
       max-width: 800px;
-      flex-direction: row;
+      min-height: 500px;
       padding: 2rem;
       border-radius: 15px;
+      flex-direction: row;
+      gap: 2rem;
     }
 
-    article {
+    .side-info {
       text-align: left;
       width: 50%;
     }
@@ -98,18 +115,13 @@ export const suscribeStyles = css`
     }
 
     .banner {
-      margin-top: 0;
-      margin-left: 2rem;
-      max-width: 400px;
-      width: 40%;
+      width: 50%;
       height: 100%;
-    }
-
-    .banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
+      min-height: 0;
+      max-height: none;
+      background: url("./src/assets/images/illustration-sign-up-desktop.svg") no-repeat;
+      background-size: cover;
+      border-radius: 15px;
     }
   }
 `;

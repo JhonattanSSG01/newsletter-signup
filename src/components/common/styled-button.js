@@ -14,7 +14,7 @@ export class StyledButton extends LitElement {
   }
 
   render() {
-    return html`<button type="submit" class="btn"><slot>${this.label}</slot></button>`;
+    return html`<button type="submit" class="btn shadow"><slot>${this.label}</slot></button>`;
   }
 }
 

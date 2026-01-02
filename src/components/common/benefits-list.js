@@ -20,8 +20,8 @@ export class BenefitsList extends LitElement {
         ${this.items.map(
           (item) => html`
             <li>
-              <icon><check-icon></check-icon></icon>
-              ${item.text}
+              <check-icon class="icon" name="icon-list"></check-icon>
+              <span>${item.text}</span>
             </li>`
         )}
       </ul>
